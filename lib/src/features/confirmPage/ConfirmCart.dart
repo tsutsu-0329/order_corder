@@ -23,7 +23,7 @@ class OrderButtonState extends State<ConfirmCart> {
     return Scaffold(
         backgroundColor: mainColor,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(80.0),
+          preferredSize: Size.fromHeight(88.0),
           child: HeadBar(),
         ),
         body: Column(

@@ -22,7 +22,7 @@ class MainState extends State<Main> {
     return Scaffold(
       backgroundColor: mainColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80.0),
+        preferredSize: Size.fromHeight(96.0),
         child: HeadBar(),
       ),
       drawer: Drawer(
