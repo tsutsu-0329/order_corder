@@ -17,6 +17,9 @@ class MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: EdgeInsets.only(
+        bottom: 32,
+      ),
       children: [
         Container(
           height: 40,

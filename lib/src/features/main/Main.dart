@@ -114,8 +114,10 @@ class MainState extends State<Main> {
             top: 0,
             child: const SideBar(),
           ),
-          Transform.translate(
-            offset: Offset(_isPressed ? 220 : 0, 0),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 400),
+            curve: _isPressed ? Curves.fastOutSlowIn : Curves.linear,
+            transform: Matrix4.translationValues(_isPressed ? 220 : 0, 0, 0),
             child: const MenuPage(),
           ),
         ],
