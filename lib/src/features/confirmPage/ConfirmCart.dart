@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/src/constants/colors.dart';
+import 'package:myapp/src/features/confirmPage/ConfirmCartPage.dart';
+import 'package:myapp/src/features/sidebar/SideBar.dart';
 import 'package:myapp/src/parts/button.dart';
-import 'package:myapp/src/features/main/MenuContents.dart';
-import 'package:myapp/src/parts/scrollButton.dart';
-import 'package:myapp/src/features/appBar/appBar.dart';
 
 class ConfirmCart extends StatefulWidget {
   static const menu = ["drink", "food", "shisha", "special", "Elon"];
@@ -16,131 +15,115 @@ class ConfirmCart extends StatefulWidget {
 
 class OrderButtonState extends State<ConfirmCart> {
   bool isTap = false;
+  bool _isPressed = false;
   List<String> menu = ConfirmCart.menu;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: mainColor,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(88.0),
-          child: HeadBar(),
-        ),
-        body: Column(
-          children: [
-            Container(
-              height: 40,
-              padding: EdgeInsets.only(left: 20),
-              child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: menu
-                      .map((item) => (Container(
-                            child: (scrollButton(key: UniqueKey(), text: item)),
-                            margin: EdgeInsets.only(right: 8),
-                          )))
-                      .toList()),
+      backgroundColor: mainColor,
+      extendBodyBehindAppBar: true,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(96.0),
+        child: AppBar(
+          backgroundColor: Colors.white.withOpacity(0),
+          titleSpacing: 0,
+          automaticallyImplyLeading: false, // バックアイコンを非表示にする
+          toolbarHeight: 120,
+          elevation: 0,
+          leading: IconButton(
+            onPressed: () {
+              setState(() {
+                _isPressed = !_isPressed;
+              });
+            },
+            icon: Icon(
+              !_isPressed ? Icons.dehaze : Icons.close,
+              color: textColor,
             ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(32.0),
-                    child: Column(
-                      children: [
-                        Container(
-                          alignment: Alignment.bottomLeft,
-                          child: Text(
-                            "Cart",
-                            style: TextStyle(color: textColor, fontSize: 28.0),
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(top: 32.0),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text("アサヒスーパードライ",
-                                      style: TextStyle(
-                                          color: textColor, fontSize: 20.0)),
-                                  Text(
-                                    "×3",
-                                    style: TextStyle(
-                                        color: textColor, fontSize: 20.0),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text("一番搾り",
-                                      style: TextStyle(
-                                          color: textColor, fontSize: 20.0)),
-                                  Text(
-                                    "×1",
-                                    style: TextStyle(
-                                        color: textColor, fontSize: 20.0),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text("コカ・コーラ",
-                                      style: TextStyle(
-                                          color: textColor, fontSize: 20.0)),
-                                  Text(
-                                    "×3",
-                                    style: TextStyle(
-                                        color: textColor, fontSize: 20.0),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  AnimatedPositioned(
-                    height: isTap ? 300 : 100,
-                    duration: const Duration(seconds: 2),
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          isTap = !isTap;
-                        });
-                      },
-                      child: Container(
-                        color: subButtonColor,
-                        height: 140,
-                        width: double.infinity,
-                        child: TextButton(
-                          onPressed: () {
-                            setState(() {
-                              isTap = !isTap;
-                            });
-                          },
-                          child: Text(
-                            "tap to order",
-                            style: TextStyle(
-                              color: textColor,
-                              fontSize: 40,
-                            ),
-                          ),
-                        ),
+          ),
+          title: const Text(
+            "IClub",
+            style: TextStyle(
+              fontSize: 36,
+              color: textColor,
+            ),
+          ),
+          actions: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Button(
+                  size: 40,
+                  iconSize: 8,
+                  icon: Icons.call_made_outlined,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ConfirmCart(),
                       ),
-                    ),
+                    );
+                  },
+                ),
+                const SizedBox(height: 4.0),
+                const Text(
+                  "order history",
+                  style: TextStyle(
+                    fontSize: 8,
+                    color: textColor,
                   ),
-                ],
-              ),
+                )
+              ],
             ),
+            const SizedBox(width: 12.0),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Button(
+                  size: 40,
+                  iconSize: 8,
+                  icon: Icons.call_made_outlined,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ConfirmCart(),
+                      ),
+                    );
+                  },
+                ),
+                const SizedBox(height: 4.0),
+                const Text(
+                  "cart",
+                  style: TextStyle(
+                    fontSize: 8,
+                    color: textColor,
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(width: 12.0),
           ],
-        ));
+        ),
+      ),
+      body: Stack(
+        children: [
+          AnimatedPositioned(
+            width: 220,
+            height: MediaQuery.of(context).size.height,
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.fastOutSlowIn,
+            left: _isPressed ? 0 : -220,
+            top: 0,
+            child: const SideBar(),
+          ),
+          Transform.translate(
+            offset: Offset(_isPressed ? 220 : 0, 0),
+            child: const Expanded(child: ConfirmCartPage()),
+          ),
+        ],
+      ),
+    );
   }
 }

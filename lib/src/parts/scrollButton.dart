@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/src/constants/colors.dart';
-import 'package:myapp/src/features/appBar/appBar.dart';
 import 'package:myapp/src/features/main/Main.dart';
 
 class scrollButton extends StatelessWidget {
@@ -18,12 +17,12 @@ class scrollButton extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Main()),
+            MaterialPageRoute(builder: (context) => const Main()),
           );
         },
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             color: textColor,
             fontSize: 16,
           ),

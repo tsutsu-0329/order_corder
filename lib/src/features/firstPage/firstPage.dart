@@ -1,23 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/src/constants/colors.dart';
 import 'package:myapp/src/features/main/Main.dart';
-import 'package:myapp/src/parts/button.dart';
-import 'package:myapp/src/features/main/MenuContents.dart';
-import 'package:myapp/src/parts/scrollButton.dart';
-import 'package:myapp/src/features/appBar/appBar.dart';
 
-class FirstPage extends StatelessWidget {
-  const FirstPage({Key? key}) : super(key: key);
+class FirstPage extends StatefulWidget {
+  const FirstPage({super.key});
+
+  @override
+  State<FirstPage> createState() => _FirstPageState();
+}
+
+class _FirstPageState extends State<FirstPage> {
+  bool _isPressed = false;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 120.0, horizontal: 32.0),
+      height: MediaQuery.of(context).size.height, // 画面の高さを設定
+      width: MediaQuery.of(context).size.width, // 画面の幅を設定
+      margin: const EdgeInsets.only(
+        right: 32.0,
+        left: 32.0,
+        top: 120.0,
+        bottom: 100,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: const [
               Text(
                 "Welcome",
                 style: TextStyle(
@@ -25,6 +35,7 @@ class FirstPage extends StatelessWidget {
                   fontSize: 32,
                 ),
               ),
+              SizedBox(height: 8.0),
               Text(
                 "to",
                 style: TextStyle(
@@ -55,10 +66,13 @@ class FirstPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Main()),
+                      MaterialPageRoute(builder: (context) => const Main()),
                     );
+                    setState(() {
+                      _isPressed = !_isPressed;
+                    });
                   },
-                  child: Text(
+                  child: const Text(
                     "order →",
                     style: TextStyle(
                       color: textColor,

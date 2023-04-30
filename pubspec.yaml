@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  fluttertoast: ^8.0.7
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -86,12 +87,11 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   
-  # fonts:
-  # - family: Magra
-  #   fonts:
-  #     - asset: fonts/Magra-Regular.ttf
-  #     - asset: fonts/Magra-Bold.ttf
-  #     - asset: fonts/Magra-Light.ttf
+  fonts:
+  - family: Magra
+    fonts:
+      - asset: fonts/Magra-Regular.ttf
+      - asset: fonts/Magra-Bold.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

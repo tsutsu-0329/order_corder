@@ -27,7 +27,7 @@ class _MenuContentsState extends State<MenuContents> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         vertical: 12.0,
         horizontal: 8.0,
       ),
@@ -42,8 +42,8 @@ class _MenuContentsState extends State<MenuContents> {
         children: [
           Container(
             alignment: Alignment.topLeft,
-            padding: EdgeInsets.only(left: 8.0),
-            child: Text(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: const Text(
               "アサヒスーパードライ",
               style: TextStyle(
                 color: textColor,
@@ -54,7 +54,7 @@ class _MenuContentsState extends State<MenuContents> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(
+              const Text(
                 "￥ 720",
                 style: TextStyle(
                   color: textColor,
@@ -69,12 +69,12 @@ class _MenuContentsState extends State<MenuContents> {
                     iconSize: 5.0,
                     onPressed: _plus,
                   ),
-                  SizedBox(width: 4.0),
+                  const SizedBox(width: 4.0),
                   Text(
                     "$_amount",
-                    style: TextStyle(color: textColor),
+                    style: const TextStyle(color: textColor),
                   ),
-                  SizedBox(width: 4.0),
+                  const SizedBox(width: 4.0),
                   Button(
                     icon: Icons.remove,
                     size: 20.0,
