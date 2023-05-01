@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/src/constants/colors.dart';
-import 'package:myapp/src/features/confirmPage/ConfirmCartPage.dart';
-import 'package:myapp/src/features/orederHistoryPage/OrderHistory.dart';
+import 'package:myapp/src/features/confirmPage/ConfirmCart.dart';
 import 'package:myapp/src/features/sidebar/SideBar.dart';
 import 'package:myapp/src/parts/button.dart';
+import 'package:myapp/src/features/orederHistoryPage/OrderHistoryPage.dart';
 
-class ConfirmCart extends StatefulWidget {
+class OrderHistory extends StatefulWidget {
   static const menu = ["drink", "food", "shisha", "special", "Elon"];
 
-  const ConfirmCart({Key? key}) : super(key: key);
+  const OrderHistory({Key? key}) : super(key: key);
 
   @override
-  OrderButtonState createState() => OrderButtonState();
+  OrderHistoryState createState() => OrderHistoryState();
 }
 
-class OrderButtonState extends State<ConfirmCart> {
+class OrderHistoryState extends State<OrderHistory> {
   bool isTap = false;
   bool _isPressed = false;
-  List<String> menu = ConfirmCart.menu;
+  List<String> menu = OrderHistory.menu;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class OrderButtonState extends State<ConfirmCart> {
                 ),
                 const SizedBox(height: 4.0),
                 const Text(
-                  "order History",
+                  "order history",
                   style: TextStyle(
                     fontSize: 8,
                     color: textColor,
@@ -123,7 +123,7 @@ class OrderButtonState extends State<ConfirmCart> {
             duration: const Duration(milliseconds: 400),
             curve: _isPressed ? Curves.fastOutSlowIn : Curves.linear,
             transform: Matrix4.translationValues(_isPressed ? 220 : 0, 0, 0),
-            child: const ConfirmCartPage(),
+            child: const OrderHistoryPage(),
           ),
         ],
       ),

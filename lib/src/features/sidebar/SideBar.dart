@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:motion_toast/motion_toast.dart';
+import 'package:motion_toast/resources/arrays.dart';
 import 'package:myapp/src/constants/colors.dart';
 import 'package:myapp/src/features/sidebar/orderContents.dart';
+import 'package:motion_toast/motion_toast.dart';
 
 class SideBar extends StatelessWidget {
   const SideBar({super.key});
@@ -114,16 +117,28 @@ class SideBar extends StatelessWidget {
                         color: buttonColor,
                         borderRadius: BorderRadius.circular(8.0),
                       ),
-                      padding: EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.all(4.0),
                       child: TextButton.icon(
                         onPressed: () {
-                          // ボタンが押されたときの処理
+                          MotionToast(
+                            height: 60.0,
+                            width: 240.0,
+                            icon: Icons.call,
+                            iconSize: 24.0,
+                            primaryColor: subButtonColor,
+                            description: const Text(
+                              'ただいまスタッフが来ます。',
+                              style: TextStyle(fontSize: 12.0),
+                            ),
+                            position: MotionToastPosition.top,
+                            animationType: AnimationType.fromTop,
+                          ).show(context);
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.call,
                           color: white,
                         ),
-                        label: Text(
+                        label: const Text(
                           'Call staff',
                           style: TextStyle(
                             color: textColor,

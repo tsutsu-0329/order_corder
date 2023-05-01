@@ -3,23 +3,23 @@ import 'package:myapp/src/features/main/Main.dart';
 import 'package:myapp/src/parts/scrollButton.dart';
 import 'package:myapp/src/constants/colors.dart';
 
-class ConfirmCartPage extends StatefulWidget {
+class OrderHistoryPage extends StatefulWidget {
   static const menu = ["drink", "food", "shisha", "special", "Elon"];
-  const ConfirmCartPage({super.key});
+  const OrderHistoryPage({super.key});
 
   @override
-  State<ConfirmCartPage> createState() => _ConfirmCartPageState();
+  State<OrderHistoryPage> createState() => _OrderHistoryPageState();
 }
 
-class _ConfirmCartPageState extends State<ConfirmCartPage> {
+class _OrderHistoryPageState extends State<OrderHistoryPage> {
   bool _isPressed = false;
-  List<String> menu = ConfirmCartPage.menu;
+  List<String> menu = OrderHistoryPage.menu;
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
-          padding: EdgeInsets.only(top: 96.0),
+          padding: const EdgeInsets.only(top: 96.0),
           child: Column(
             children: [
               Expanded(
@@ -54,13 +54,33 @@ class _ConfirmCartPageState extends State<ConfirmCartPage> {
                                   alignment: Alignment.bottomLeft,
                                   padding: const EdgeInsets.only(bottom: 8.0),
                                   child: const Text(
-                                    "Cart",
+                                    "order History",
                                     style: TextStyle(
                                         color: textColor, fontSize: 28.0),
                                   ),
                                 ),
                                 Container(
-                                  padding: const EdgeInsets.only(top: 32.0),
+                                    alignment: Alignment.bottomLeft,
+                                    padding: const EdgeInsets.only(
+                                      bottom: 12.0,
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: const [
+                                        Text(
+                                          "total",
+                                          style: TextStyle(
+                                              color: textColor, fontSize: 28.0),
+                                        ),
+                                        Text(
+                                          "¥ 3360-",
+                                          style: TextStyle(
+                                              color: textColor, fontSize: 28.0),
+                                        ),
+                                      ],
+                                    )),
+                                Container(
                                   child: Column(
                                     children: [
                                       Row(
@@ -70,12 +90,12 @@ class _ConfirmCartPageState extends State<ConfirmCartPage> {
                                           Text("ビールA",
                                               style: TextStyle(
                                                   color: textColor,
-                                                  fontSize: 20.0)),
+                                                  fontSize: 16.0)),
                                           Text(
                                             "×3",
                                             style: TextStyle(
                                                 color: textColor,
-                                                fontSize: 20.0),
+                                                fontSize: 16.0),
                                           ),
                                         ],
                                       ),
@@ -87,12 +107,12 @@ class _ConfirmCartPageState extends State<ConfirmCartPage> {
                                           Text("ビールB",
                                               style: TextStyle(
                                                   color: textColor,
-                                                  fontSize: 20.0)),
+                                                  fontSize: 16.0)),
                                           Text(
                                             "×1",
                                             style: TextStyle(
                                                 color: textColor,
-                                                fontSize: 20.0),
+                                                fontSize: 16.0),
                                           ),
                                         ],
                                       ),
@@ -104,12 +124,29 @@ class _ConfirmCartPageState extends State<ConfirmCartPage> {
                                           Text("ピーナッツ",
                                               style: TextStyle(
                                                   color: textColor,
-                                                  fontSize: 20.0)),
+                                                  fontSize: 16.0)),
                                           Text(
                                             "×3",
                                             style: TextStyle(
                                                 color: textColor,
-                                                fontSize: 20.0),
+                                                fontSize: 16.0),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 8.0),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: const [
+                                          Text("ビールB",
+                                              style: TextStyle(
+                                                  color: textColor,
+                                                  fontSize: 16.0)),
+                                          Text(
+                                            "×3",
+                                            style: TextStyle(
+                                                color: textColor,
+                                                fontSize: 16.0),
                                           ),
                                         ],
                                       ),
@@ -121,12 +158,12 @@ class _ConfirmCartPageState extends State<ConfirmCartPage> {
                                           Text("ピーナッツ",
                                               style: TextStyle(
                                                   color: textColor,
-                                                  fontSize: 20.0)),
+                                                  fontSize: 16.0)),
                                           Text(
                                             "×3",
                                             style: TextStyle(
                                                 color: textColor,
-                                                fontSize: 20.0),
+                                                fontSize: 16.0),
                                           ),
                                         ],
                                       ),
@@ -135,15 +172,32 @@ class _ConfirmCartPageState extends State<ConfirmCartPage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: const [
-                                          Text("ピーナッツ",
+                                          Text("オレンジジュース",
                                               style: TextStyle(
                                                   color: textColor,
-                                                  fontSize: 20.0)),
+                                                  fontSize: 16.0)),
                                           Text(
                                             "×3",
                                             style: TextStyle(
                                                 color: textColor,
-                                                fontSize: 20.0),
+                                                fontSize: 16.0),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 8.0),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: const [
+                                          Text("レモンサワー",
+                                              style: TextStyle(
+                                                  color: textColor,
+                                                  fontSize: 16.0)),
+                                          Text(
+                                            "×1",
+                                            style: TextStyle(
+                                                color: textColor,
+                                                fontSize: 16.0),
                                           ),
                                         ],
                                       ),
@@ -188,7 +242,7 @@ class _ConfirmCartPageState extends State<ConfirmCartPage> {
                           });
                         },
                         child: const Text(
-                          "tap to order",
+                          "tap to pay",
                           style: TextStyle(
                             color: textColor,
                             fontSize: 32.0,
@@ -205,7 +259,7 @@ class _ConfirmCartPageState extends State<ConfirmCartPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: const [
                                     Text(
-                                      "Thanks!",
+                                      "Thanks",
                                       style: TextStyle(
                                         color: textColor,
                                         fontSize: 48.0,
@@ -219,13 +273,30 @@ class _ConfirmCartPageState extends State<ConfirmCartPage> {
                                       ),
                                     ),
                                     Text(
-                                      "your order!",
+                                      "coming!",
                                       style: TextStyle(
                                         color: textColor,
                                         fontSize: 48.0,
                                       ),
                                     ),
                                   ],
+                                ),
+                                const SizedBox(
+                                  height: 40.0,
+                                ),
+                                const Text(
+                                  "スタッフが伝票を持って来ますので",
+                                  style: TextStyle(
+                                    color: textColor,
+                                    fontSize: 12.0,
+                                  ),
+                                ),
+                                const Text(
+                                  "少々お待ちください。",
+                                  style: TextStyle(
+                                    color: textColor,
+                                    fontSize: 12.0,
+                                  ),
                                 ),
                                 const SizedBox(
                                   height: 40.0,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/src/constants/colors.dart';
+import 'package:myapp/src/features/orederHistoryPage/OrderHistory.dart';
+import 'package:myapp/src/features/orederHistoryPage/OrderHistoryPage.dart';
 import 'package:myapp/src/parts/button.dart';
 import 'package:myapp/src/features/confirmPage/ConfirmCart.dart';
 import 'package:myapp/src/features/main/menu/MenuPage.dart';
@@ -57,7 +59,7 @@ class MainState extends State<Main> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ConfirmCart(),
+                        builder: (context) => const OrderHistory(),
                       ),
                     );
                   },
